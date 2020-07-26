@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">BlooodBank</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_auth_cycle">AuthCycleActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <string name="slioer_text">لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض علي العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير علي سبيل المثال ... او نماذج مواقع</string>
+ <string-array name="itemes">
+
+     <item>one</item>
+     <item>two</item>
+     <item>three</item>
+     <item>four</item>
+ </string-array>
+
+</resources>

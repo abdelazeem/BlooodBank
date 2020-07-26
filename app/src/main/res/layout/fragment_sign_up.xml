@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#92161D">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="انشاء حساب جديد"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        android:padding="@dimen/_10sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/sign_up_fragment_btn_sign_up"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <EditText
+            android:id="@+id/sign_up_fragment_et_name"
+            style="@style/edit_text_style_sign_up"
+            android:drawableStart="@drawable/ic_sign_up_name"
+            android:hint="الاسم"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/sign_up_fragment_et_emil"
+            style="@style/edit_text_style_sign_up"
+            android:drawableStart="@drawable/ic_sign_up_emil"
+            android:inputType="textEmailAddress"
+            android:hint="البريد الإلكتروني"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/sign_up_fragment_et_birth_date"
+            style="@style/edit_text_style_sign_up"
+            android:drawableStart="@drawable/ic_sign_up_birth_date"
+            android:text="تاريخ الميلاد"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:textColor="#92161D"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/_15sdp"
+            />
+
+        <RelativeLayout
+            style="@style/edit_text_style_sign_up"
+            android:id="@+id/sign_up_fragment_rl_blood_type"
+
+            android:hint="فصيلة الدم"
+            android:paddingHorizontal="@dimen/_15sdp" >
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_sign_up_blood_type"
+                android:layout_alignParentStart="true"
+                android:id="@+id/sign_up_fragment_im_blood_type"
+
+                />
+            <Spinner
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sign_up_fragment_sp_blood_types"
+                android:layout_alignStart="@+id/sign_up_fragment_im_blood_type"
+
+
+                />
+
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/sign_up_fragment_et_last_donition"
+            style="@style/edit_text_style_sign_up"
+            android:drawableStart="@drawable/ic_sign_up_birth_date"
+            android:text="اخر تاريخ تبرع"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:textColor="#92161D"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/_15sdp"
+            />
+
+        <RelativeLayout
+            style="@style/edit_text_style_sign_up"
+            android:id="@+id/sign_up_fragment_rl_address"
+
+            android:hint=" المحافظة"
+            android:paddingHorizontal="@dimen/_15sdp" >
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_sign_up_address"
+                android:layout_alignParentStart="true"
+                android:id="@+id/sign_up_fragment_im_address"
+
+                />
+            <Spinner
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sign_up_fragment_sp_address"
+                />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/edit_text_style_sign_up"
+            android:id="@+id/sign_up_fragment_rl_city"
+
+            android:hint=" المحافظة"
+            android:paddingHorizontal="@dimen/_15sdp" >
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_sign_up_address"
+                android:layout_alignParentStart="true"
+                android:id="@+id/sign_up_fragment_im_city"
+
+                />
+            <Spinner
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sign_up_fragment_sp_city"
+                />
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <EditText
+            android:id="@+id/sign_up_fragment_et_phone"
+            style="@style/edit_text_style_sign_up"
+            android:drawableStart="@drawable/ic_sign_up_phone"
+            android:inputType="phone"
+
+            android:hint="رقم الهاتف"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/sign_up_fragment_et_password"
+            style="@style/edit_text_style_sign_up"
+            android:drawableStart="@drawable/ic_sign_up_password"
+            android:inputType="textWebPassword"
+
+            android:hint="كلمة المرور"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/sign_up_fragment_et_confirm_pass"
+            style="@style/edit_text_style_sign_up"
+            android:drawableStart="@drawable/ic_sign_up_password"
+            android:inputType="textWebPassword"
+
+            android:hint="تأكيد كلمة المرور"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sign_up_fragment_btn_sign_up"
+
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/background_btn_login"
+        android:text="تسجل"
+        android:textColor="#92161D"
+        android:textStyle="bold" />
+
+</RelativeLayout>

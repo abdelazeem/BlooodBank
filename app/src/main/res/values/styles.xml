@@ -1,0 +1,42 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+    </style>
+
+    <style name="edit_text_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_35sdp</item>
+        <item name="android:background">@drawable/background_et_white</item>
+        <item name="android:layout_marginBottom">@dimen/_15sdp</item>
+        <item name="android:textColorHint">#92161D</item>
+        <item name="android:paddingStart">@dimen/_11sdp</item>
+    </style>
+
+    <style name="edit_text_style_sign_up">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/background_et_white</item>
+        <item name="android:layout_marginBottom">@dimen/_8sdp</item>
+        <item name="android:textColorHint">#92161D</item>
+
+        <item name="android:drawablePadding">@dimen/_10sdp</item>
+
+    </style>
+
+
+
+</resources>
