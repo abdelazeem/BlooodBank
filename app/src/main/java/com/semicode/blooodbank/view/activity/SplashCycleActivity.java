@@ -19,11 +19,11 @@ public class SplashCycleActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_cycle);
         SplashFragment splashFragment = new SplashFragment();
-//        HelperMethod.replaceFragment(getSupportFragmentManager(), R.id.frame, splashFragment);
+        HelperMethod.replaceFragment(getSupportFragmentManager(), R.id.frame, splashFragment);
 
 //        HelperMethod.replaceFragment(getSupportFragmentManager(), R.id.frame, signUpFragment);
-        Intent myIntent = new Intent(getBaseContext(), HomeCycleActivity.class);
-        startActivity(myIntent);
+//        Intent myIntent = new Intent(getBaseContext(), HomeCycleActivity.class);
+//        startActivity(myIntent);
 
     }
 }
