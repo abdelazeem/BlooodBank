@@ -30,7 +30,7 @@ public class SplashFragment extends BaseFragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                HelperMethod.replaceFragment(getActivity().getSupportFragmentManager(), R.id.frame, sliderFragment);
+                HelperMethod.replaceFragment(getActivity().getSupportFragmentManager(), R.id.splash_frame, sliderFragment);
 
             }
         }, 3000);

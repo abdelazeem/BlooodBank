@@ -1,10 +1,10 @@
 
-package com.semicode.blooodbank.data.model.register;
+package com.semicode.blooodbank.data.model.profile;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BloodType {
+public class Governorate {
 
     @SerializedName("id")
     @Expose
@@ -14,7 +14,7 @@ public class BloodType {
     private Object createdAt;
     @SerializedName("updated_at")
     @Expose
-    private Object updatedAt;
+    private String updatedAt;
     @SerializedName("name")
     @Expose
     private String name;
@@ -35,11 +35,11 @@ public class BloodType {
         this.createdAt = createdAt;
     }
 
-    public Object getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Object updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 

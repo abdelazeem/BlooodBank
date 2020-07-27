@@ -1,11 +1,20 @@
 
-package com.semicode.blooodbank.data.model.register;
+package com.semicode.blooodbank.data.model.profile;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Client {
 
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
     @SerializedName("name")
     @Expose
     private String name;
@@ -27,15 +36,15 @@ public class Client {
     @SerializedName("blood_type_id")
     @Expose
     private String bloodTypeId;
-    @SerializedName("updated_at")
+    @SerializedName("is_active")
     @Expose
-    private String updatedAt;
-    @SerializedName("created_at")
+    private String isActive;
+    @SerializedName("pin_code")
     @Expose
-    private String createdAt;
-    @SerializedName("id")
+    private String pinCode;
+    @SerializedName("remember_token")
     @Expose
-    private Integer id;
+    private Object rememberToken;
     @SerializedName("can_donate")
     @Expose
     private Boolean canDonate;
@@ -45,6 +54,30 @@ public class Client {
     @SerializedName("blood_type")
     @Expose
     private BloodType bloodType;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     public String getName() {
         return name;
@@ -102,28 +135,28 @@ public class Client {
         this.bloodTypeId = bloodTypeId;
     }
 
-    public String getUpdatedAt() {
-        return updatedAt;
+    public String getIsActive() {
+        return isActive;
     }
 
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setIsActive(String isActive) {
+        this.isActive = isActive;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
+    public String getPinCode() {
+        return pinCode;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public void setPinCode(String pinCode) {
+        this.pinCode = pinCode;
     }
 
-    public Integer getId() {
-        return id;
+    public Object getRememberToken() {
+        return rememberToken;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRememberToken(Object rememberToken) {
+        this.rememberToken = rememberToken;
     }
 
     public Boolean getCanDonate() {

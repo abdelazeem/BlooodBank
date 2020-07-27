@@ -63,7 +63,7 @@
                 android:checked="true"
                 android:layoutDirection="ltr"
                 android:text="تذكرني"
-                android:textColor="#F8F7F7"
+                android:textColor="@color/whiteColor"
                 android:textStyle="bold"
 
                 />
@@ -76,7 +76,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:text="هل نسيت كلمة السر؟"
-                android:textColor="#F8F7F7"
+                android:textColor="@color/whiteColor"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -88,7 +88,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/background_btn_login"
             android:text="دخول"
-            android:textColor="#92161D"
+            android:textColor="@color/main_color"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -99,8 +99,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_20sdp"
         android:layout_alignParentBottom="true"
-        android:background="#C5C3C3"
+        android:background="@color/grayColor"
         android:text="لا تمتلك حساب؟ بمكنك التسجيل من هنا "
-        android:textColor="#92161D" />
+        android:textColor="@color/main_color" />
 
 </RelativeLayout>

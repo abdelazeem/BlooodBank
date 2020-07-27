@@ -10,13 +10,15 @@
     <string name="previous">Previous</string>
 
 
-    <string name="slioer_text">لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض علي العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير علي سبيل المثال ... او نماذج مواقع</string>
- <string-array name="itemes">
+    <string name="slider_text">لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض علي العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير علي سبيل المثال ... او نماذج مواقع</string>
+    <string name="sign_up_et_confirm_pass">تأكيد كلمة المرور</string>
+    <string name="sign_up_et_name">الاسم</string>
+    <string name="sign_up_et_emil">البريد الإلكتروني</string>
+    <string name="sign_up_et_birth_day">تاريخ الميلاد</string>
+    <string name="sign_up_et_last_donation">اخر تاريخ تبرع</string>
+    <string name="sign_up_et_phone">رقم الهاتف</string>
+    <string name="sign_up_et_password">كلمة المرور</string>
+    <string name="sign_up_et_title">انشاء حساب جديد</string>
 
-     <item>one</item>
-     <item>two</item>
-     <item>three</item>
-     <item>four</item>
- </string-array>
 
 </resources>

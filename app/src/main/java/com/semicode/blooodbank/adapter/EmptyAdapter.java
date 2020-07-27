@@ -21,7 +21,7 @@ public class EmptyAdapter extends RecyclerView.Adapter<EmptyAdapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.test_splash_fragment,
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_splash,
                 parent, false);
 
         return new ViewHolder(view);

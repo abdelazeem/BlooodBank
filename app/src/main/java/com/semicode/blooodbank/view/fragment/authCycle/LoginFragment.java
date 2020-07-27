@@ -1,6 +1,5 @@
 package com.semicode.blooodbank.view.fragment.authCycle;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,17 +7,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.semicode.blooodbank.R;
 import com.semicode.blooodbank.data.api.ApiService;
 
-import com.semicode.blooodbank.data.model.login.Login;
-import com.semicode.blooodbank.data.model.restPassword.RestPassword;
+import com.semicode.blooodbank.data.model.profile.Profile;
 import com.semicode.blooodbank.helper.HelperMethod;
-import com.semicode.blooodbank.view.activity.HomeCycleActivity;
 import com.semicode.blooodbank.view.fragment.splashCycle.BaseFragment;
 
 import butterknife.BindView;
@@ -53,7 +48,7 @@ public class LoginFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         initFragment();
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_auth_login, container, false);
         ButterKnife.bind(this, view);
 //        Intent intent = new Intent(getActivity() ,HomeCycleActivity.class);
 //        startActivity(intent);
@@ -73,19 +68,26 @@ public class LoginFragment extends BaseFragment {
                 HelperMethod.replaceFragment(getActivity().getSupportFragmentManager(), R.id.auth_cycle_frame, forgetPasswordFragment);
                 break;
             case R.id.login_fragment_btn_sign_in:
-                apiService.logIn("01157903000","123").enqueue(new Callback<Login>() {
+                HelperMethod.showProgressDialog(getActivity(),"login");
+
+                String user = loginFragmentEtEmail.getText().toString();
+                String password = loginFragmentEtPassword.getText().toString();
+
+                apiService.logIn(user,password).enqueue(new Callback<Profile>() {
                     @Override
-                    public void onResponse(Call<Login> call, Response<Login> response) {
+                    public void onResponse(Call<Profile> call, Response<Profile> response) {
                         if (response.body().getStatus()==1){
                             HelperMethod.makeTextToast(getActivity(),"login done .......");
+                            HelperMethod.dismissProgressDialog();
                         }else {
                             HelperMethod.makeTextToast(getActivity(),"email or password is incorrect.......");
+                            HelperMethod.dismissProgressDialog();
                         }
 
                     }
 
                     @Override
-                    public void onFailure(Call<Login> call, Throwable t) {
+                    public void onFailure(Call<Profile> call, Throwable t) {
                         HelperMethod.makeTextToast(getActivity(),"login not  done .......");
                     }
                 });

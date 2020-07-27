@@ -3,7 +3,6 @@ package com.semicode.blooodbank.data.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.semicode.blooodbank.data.model.government.Government;
 
 public class GeneralResponseData {
 
@@ -24,7 +23,7 @@ public class GeneralResponseData {
     private String governorateId;
     @SerializedName("governorate")
     @Expose
-    private Government governorate;
+    private GeneralResponse governorate;
 
     public Integer getId() {
         return id;
@@ -71,11 +70,11 @@ public class GeneralResponseData {
         this.governorateId = governorateId;
     }
 
-    public Government getGovernorate() {
+    public GeneralResponse getGovernorate() {
         return governorate;
     }
 
-    public void setGovernorate(Government governorate) {
+    public void setGovernorate(GeneralResponse governorate) {
         this.governorate = governorate;
     }
 

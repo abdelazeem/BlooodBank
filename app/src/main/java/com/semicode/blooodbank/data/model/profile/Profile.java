@@ -1,12 +1,10 @@
 
-package com.semicode.blooodbank.data.model.government;
+package com.semicode.blooodbank.data.model.profile;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.semicode.blooodbank.data.model.GeneralResponseData;
 
-public class Government {
+public class Profile {
 
     @SerializedName("status")
     @Expose
@@ -16,7 +14,7 @@ public class Government {
     private String msg;
     @SerializedName("data")
     @Expose
-    private List<GeneralResponseData> data = null;
+    private Data data;
 
     public Integer getStatus() {
         return status;
@@ -34,11 +32,11 @@ public class Government {
         this.msg = msg;
     }
 
-    public List<GeneralResponseData> getData() {
+    public Data getData() {
         return data;
     }
 
-    public void setData(List<GeneralResponseData> data) {
+    public void setData(Data data) {
         this.data = data;
     }
 

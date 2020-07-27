@@ -21,12 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.AuthCycleActivity">
-
-        </activity>
-        <activity android:name=".view.activity.HomeCycleActivity">
-
-        </activity>
+        <activity android:name=".view.activity.AuthCycleActivity"></activity>
+<!--        <activity android:name=".view.activity."></activity>-->
+        <activity android:name=".view.activity.HomeCycleActivity"></activity>
     </application>
 
 </manifest>

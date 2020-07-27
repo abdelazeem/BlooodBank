@@ -42,7 +42,7 @@ public class ConfirmCodeFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         initFragment();
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_confirm_code, container, false);
+        View view = inflater.inflate(R.layout.fragment_auth_confirm_code, container, false);
         ButterKnife.bind(this, view);
         apiService =getClient().create(ApiService.class);
         phoneNumber =getArguments().getString("phone number");

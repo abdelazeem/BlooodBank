@@ -12,7 +12,7 @@ public class AuthCycleActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        HelperMethod.changeLang(getBaseContext(), "ar");
 //        HelperMethod.changeLang(getBaseContext(), "ar");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth_cycle);
