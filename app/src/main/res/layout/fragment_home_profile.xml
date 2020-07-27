@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+    <TextView
+        android:id="@+id/profile_title"
+        android:text="تعديل البيانات"
+        style="@style/top_bar_tv" />
+
+    <LinearLayout
+        android:id="@+id/container_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/profile_fragment_btn_sign_up"
+        android:layout_below="@id/profile_title"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <EditText
+            android:id="@+id/profile_fragment_et_name"
+            style="@style/edit_text_style_profile"
+            android:drawableStart="@drawable/ic_sign_up_name"
+            android:hint="@string/sign_up_et_name"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/profile_fragment_et_emil"
+            style="@style/edit_text_style_profile"
+            android:drawableStart="@drawable/ic_sign_up_emil"
+            android:hint="@string/sign_up_et_emil"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/profile_fragment_et_birth_date"
+            style="@style/edit_text_style_profile"
+            android:drawableStart="@drawable/ic_sign_up_birth_date"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:text="@string/sign_up_et_birth_day"
+            android:textColor="#92161D"
+            android:textSize="@dimen/_15sdp" />
+
+        <RelativeLayout
+            android:id="@+id/profile_fragment_rl_blood_type"
+            style="@style/edit_text_style_profile"
+
+            android:paddingHorizontal="@dimen/_15sdp">
+
+            <ImageView
+                android:id="@+id/profile_fragment_im_blood_type"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_sign_up_blood_type"
+
+                />
+
+            <Spinner
+
+                android:id="@+id/profile_fragment_sp_blood_types"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/profile_fragment_im_blood_type"
+
+
+                />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/profile_fragment_et_last_donition"
+            style="@style/edit_text_style_profile"
+            android:drawableStart="@drawable/ic_sign_up_birth_date"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:text="@string/sign_up_et_last_donation"
+            android:textColor="#92161D"
+            android:textSize="@dimen/_15sdp" />
+
+        <RelativeLayout
+            android:id="@+id/profilefragment_rl_address"
+            style="@style/edit_text_style_profile"
+
+            android:paddingHorizontal="@dimen/_15sdp">
+
+            <ImageView
+                android:id="@+id/profile_fragment_im_address"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_sign_up_address"
+
+                />
+
+            <Spinner
+
+                android:id="@+id/profile_fragment_sp_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_fragment_rl_city"
+            style="@style/edit_text_style_profile"
+
+            android:paddingHorizontal="@dimen/_15sdp">
+
+            <ImageView
+                android:id="@+id/profile_fragment_im_city"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_sign_up_address"
+
+                />
+
+            <Spinner
+
+                android:id="@+id/profilefragment_sp_city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/profile_fragment_et_phone"
+            style="@style/edit_text_style_profile"
+            android:drawableStart="@drawable/ic_sign_up_phone"
+            android:hint="@string/sign_up_et_phone"
+
+            android:inputType="phone"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/profile_fragment_et_password"
+            style="@style/edit_text_style_profile"
+            android:drawableStart="@drawable/ic_sign_up_password"
+            android:gravity="end|center_vertical"
+            android:hint="@string/sign_up_et_password"
+            android:inputType="textWebPassword"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/profile_fragment_et_confirm_pass"
+            style="@style/edit_text_style_profile"
+            android:drawableStart="@drawable/ic_sign_up_password"
+            android:gravity="end|center_vertical"
+            android:hint="@string/sign_up_et_confirm_pass"
+            android:inputType="textWebPassword"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/profile_fragment_btn_sign_up"
+
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/background_btn_edit_profilr"
+        android:text="تعديل"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold" />
+
+</RelativeLayout>

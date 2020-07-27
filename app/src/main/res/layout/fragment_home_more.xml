@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/top_bar_tv"
+        android:text="المزيد" />
+
+    <TextView
+        android:drawableStart="@drawable/ic__favorite"
+        android:text=" المفضلة"
+        style="@style/tv_none_ridus" />
+    <View style="@style/gray_view" />
+<TextView
+        android:drawableStart="@drawable/ic_sign_up_address"
+        android:text="تواصل معانا"
+        style="@style/tv_none_ridus" />
+    <View style="@style/gray_view" />
+<TextView
+        android:drawableStart="@drawable/ic_emoji_about_app"
+        android:text="عن التطبيق"
+        style="@style/tv_none_ridus" />
+    <View style="@style/gray_view" />
+<TextView
+        android:drawableStart="@drawable/ic__star_rate"
+        android:text="تقييم التطبيق علي المنجر"
+        style="@style/tv_none_ridus" />
+    <View style="@style/gray_view" />
+<TextView
+        android:drawableStart="@drawable/ic_notification_settings"
+        android:text= "اعدادات الاشعارات"
+        style="@style/tv_none_ridus" />
+    <View style="@style/gray_view" />
+
+    <TextView
+        style="@style/tv_none_ridus"
+        android:drawableStart="@drawable/ic_logout"
+        android:text= "تسحيل الخروح"/>
+
+    <View style="@style/gray_view" />
+
+
+</LinearLayout>
