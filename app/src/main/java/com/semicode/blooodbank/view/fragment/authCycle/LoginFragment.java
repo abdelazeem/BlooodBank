@@ -1,5 +1,6 @@
 package com.semicode.blooodbank.view.fragment.authCycle;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.semicode.blooodbank.data.api.ApiService;
 
 import com.semicode.blooodbank.data.model.profile.Profile;
 import com.semicode.blooodbank.helper.HelperMethod;
+import com.semicode.blooodbank.view.activity.HomeCycleActivity;
 import com.semicode.blooodbank.view.fragment.splashCycle.BaseFragment;
 
 import butterknife.BindView;
@@ -41,7 +43,7 @@ public class LoginFragment extends BaseFragment {
     Button loginFragmentBtnSignIn;
     @BindView(R.id.login_fragment_btn_sign_up)
     Button loginFragmentBtnSignUp;
-    ApiService apiService ;
+    ApiService apiService;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +54,7 @@ public class LoginFragment extends BaseFragment {
         ButterKnife.bind(this, view);
 //        Intent intent = new Intent(getActivity() ,HomeCycleActivity.class);
 //        startActivity(intent);
-         apiService = getClient().create(ApiService.class);
+        apiService = getClient().create(ApiService.class);
 
 
         return view;
@@ -68,19 +70,19 @@ public class LoginFragment extends BaseFragment {
                 HelperMethod.replaceFragment(getActivity().getSupportFragmentManager(), R.id.auth_cycle_frame, forgetPasswordFragment);
                 break;
             case R.id.login_fragment_btn_sign_in:
-                HelperMethod.showProgressDialog(getActivity(),"login");
+                HelperMethod.showProgressDialog(getActivity(), "login");
 
                 String user = loginFragmentEtEmail.getText().toString();
                 String password = loginFragmentEtPassword.getText().toString();
 
-                apiService.logIn(user,password).enqueue(new Callback<Profile>() {
+                apiService.logIn(user, password).enqueue(new Callback<Profile>() {
                     @Override
                     public void onResponse(Call<Profile> call, Response<Profile> response) {
-                        if (response.body().getStatus()==1){
-                            HelperMethod.makeTextToast(getActivity(),"login done .......");
+                        if (response.body().getStatus() == 1) {
+                            HelperMethod.makeTextToast(getActivity(), "login done .......");
                             HelperMethod.dismissProgressDialog();
-                        }else {
-                            HelperMethod.makeTextToast(getActivity(),"email or password is incorrect.......");
+                        } else {
+                            HelperMethod.makeTextToast(getActivity(), "email or password is incorrect.......");
                             HelperMethod.dismissProgressDialog();
                         }
 
@@ -88,9 +90,11 @@ public class LoginFragment extends BaseFragment {
 
                     @Override
                     public void onFailure(Call<Profile> call, Throwable t) {
-                        HelperMethod.makeTextToast(getActivity(),"login not  done .......");
+                        HelperMethod.makeTextToast(getActivity(), "login not  done .......");
                     }
                 });
+                Intent intent = new Intent(getActivity(), HomeCycleActivity.class);
+                startActivity(intent);
                 break;
             case R.id.login_fragment_btn_sign_up:
                 SignUpFragment signUpFragment = new SignUpFragment();

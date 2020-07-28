@@ -28,8 +28,9 @@ public class MySpinnerAdapter extends BaseAdapter {
     }
 
     public void setData(List<GeneralResponseData> generalResponseDataList, String hint) {
-        generalResponseDataList.add(new GeneralResponseData(0, hint));
         this.generalResponseDataList = generalResponseDataList;
+        this.generalResponseDataList.add(new GeneralResponseData(generalResponseDataList.size(), hint));
+
     }
 
     @Override

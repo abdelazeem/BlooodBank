@@ -9,32 +9,43 @@
         android:text="المزيد" />
 
     <TextView
+        android:id="@+id/more_tv_favorite"
         android:drawableStart="@drawable/ic__favorite"
         android:text=" المفضلة"
         style="@style/tv_none_ridus" />
     <View style="@style/gray_view" />
 <TextView
-        android:drawableStart="@drawable/ic_sign_up_address"
+    android:id="@+id/more_tv_connect_us"
+
+    android:drawableStart="@drawable/ic_sign_up_address"
         android:text="تواصل معانا"
         style="@style/tv_none_ridus" />
     <View style="@style/gray_view" />
 <TextView
-        android:drawableStart="@drawable/ic_emoji_about_app"
+    android:id="@+id/more_tv_about_app"
+
+    android:drawableStart="@drawable/ic_emoji_about_app"
         android:text="عن التطبيق"
         style="@style/tv_none_ridus" />
     <View style="@style/gray_view" />
 <TextView
-        android:drawableStart="@drawable/ic__star_rate"
+    android:id="@+id/more_tv_star_rate"
+
+    android:drawableStart="@drawable/ic__star_rate"
         android:text="تقييم التطبيق علي المنجر"
         style="@style/tv_none_ridus" />
     <View style="@style/gray_view" />
 <TextView
-        android:drawableStart="@drawable/ic_notification_settings"
+    android:id="@+id/more_tv_notification_setting"
+
+    android:drawableStart="@drawable/ic_notification_settings"
         android:text= "اعدادات الاشعارات"
         style="@style/tv_none_ridus" />
     <View style="@style/gray_view" />
 
     <TextView
+        android:id="@+id/more_tv_logout"
+
         style="@style/tv_none_ridus"
         android:drawableStart="@drawable/ic_logout"
         android:text= "تسحيل الخروح"/>

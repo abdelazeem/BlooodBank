@@ -76,10 +76,6 @@ public class SignUpFragment extends BaseFragment {
 
         apiService = getClient().create(ApiService.class);
 
-        HelperMethod.showProgressDialog(getActivity(), "loading...");
-        getBloodTypeData();
-        getGovernmentData();
-
 
     }
 
@@ -90,29 +86,24 @@ public class SignUpFragment extends BaseFragment {
 // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_auth_sign_up, container, false);
         ButterKnife.bind(this, view);
-
-
         bloodTypeSpinnerAdapter = new MySpinnerAdapter(getActivity());
         governmentAdapter = new MySpinnerAdapter(getActivity());
         CitySpinnerAdapter = new MySpinnerAdapter(getActivity());
 
-        bloodTypeSpinnerAdapter.setData(bloodTypeList, "فصيله الدم");
-        governmentAdapter.setData(governmentList, "اختر المحافظه");
+        HelperMethod.showProgressDialog(getActivity(), "loading...");
+        getBloodTypeData(signUpFragmentSpBloodTypes,bloodTypeSpinnerAdapter);
+        getGovernmentData(signUpFragmentSpAddress,governmentAdapter);
         HelperMethod.dismissProgressDialog();
 
-        signUpFragmentSpBloodTypes.setAdapter(bloodTypeSpinnerAdapter);
-        signUpFragmentSpAddress.setAdapter(governmentAdapter);
+//
         signUpFragmentSpAddress.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                HelperMethod.showProgressDialog(getActivity(), "loading cities");
+//                HelperMethod.showProgressDialog(getActivity(), "loading cities");
                 govermentIdSelected = adapterView.getSelectedItemPosition();
-                getCityData(govermentIdSelected);
+                getCityData(signUpFragmentSpCity ,CitySpinnerAdapter ,govermentIdSelected);
 
-                signUpFragmentSpCity.setSelection(0);
-                CitySpinnerAdapter.setData(cityList, "اختر المدينه");
-                signUpFragmentSpCity.setAdapter(CitySpinnerAdapter);
-                HelperMethod.dismissProgressDialog();
+
             }
 
             @Override
@@ -122,17 +113,19 @@ public class SignUpFragment extends BaseFragment {
         });
 
 
+        HelperMethod.dismissProgressDialog();
+
         return view;
     }
 
-    void getCityData(int selectedGovernment) {
+    void getCityData(Spinner spinner, MySpinnerAdapter spinnerAdapter ,int selectedGovernment) {
         apiService.getCities(selectedGovernment).enqueue(new Callback<GeneralResponse>() {
             @Override
             public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
 
-                cityList.clear();
-                HelperMethod.makeTextToast(getActivity(), "choose your cities ");
-                cityList.addAll(response.body().getData());
+
+                spinnerAdapter.setData(response.body().getData(),"اختر المدينة");
+                spinner.setAdapter(spinnerAdapter);
             }
 
             @Override
@@ -144,12 +137,13 @@ public class SignUpFragment extends BaseFragment {
         });
     }
 
-    void getBloodTypeData() {
+    void getBloodTypeData(Spinner spinner, MySpinnerAdapter spinnerAdapter) {
         apiService.getBloodType().enqueue(new Callback<GeneralResponse>() {
             @Override
             public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-                bloodTypeList.addAll(response.body().getData());
 
+                spinnerAdapter.setData(response.body().getData(), "فصيلة الدم");
+                spinner.setAdapter(spinnerAdapter);
             }
 
             @Override
@@ -159,11 +153,15 @@ public class SignUpFragment extends BaseFragment {
         });
     }
 
-    void getGovernmentData() {
+    void getGovernmentData(Spinner spinner, MySpinnerAdapter spinnerAdapter) {
         apiService.getGovernment().enqueue(new Callback<GeneralResponse>() {
             @Override
             public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-                governmentList.addAll(response.body().getData());
+
+                spinnerAdapter.setData(response.body().getData(), "اختر المحافظة");
+                spinner.setAdapter(spinnerAdapter);
+
+
             }
 
             @Override
@@ -199,7 +197,7 @@ public class SignUpFragment extends BaseFragment {
 
     @OnClick(R.id.sign_up_fragment_btn_sign_up)
     public void onViewClicked() {
-        HelperMethod.showProgressDialog(getActivity(),"Sign up...");
+        HelperMethod.showProgressDialog(getActivity(), "Sign up...");
         apiService.signUp(signUpFragmentEtName.getText() + "",
                 "" + signUpFragmentEtEmil.getText(),
                 "" + signUpFragmentEtBirthDate.getText(),
