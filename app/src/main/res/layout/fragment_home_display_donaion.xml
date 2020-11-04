@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/display_donation_tv_top_bar"
+        style="@style/top_bar_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic__home_activity_back"
+        android:text=" طلب تبرع :" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_15sdp">
+
+        <TextView
+            android:id="@+id/display_donation_tv_name"
+
+            style="@style/tv_none_ridus_display_donation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الاسم: " />
+
+        <TextView
+            android:id="@+id/display_donation_tv_age"
+
+            style="@style/tv_none_ridus_display_donation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="العمر : " />
+
+        <TextView
+            android:id="@+id/display_donation_tv_blood_type"
+
+            style="@style/tv_none_ridus_display_donation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="فصيلة الدم : " />
+
+        <TextView
+            android:id="@+id/display_donation_tv_number_of_blood"
+
+            style="@style/tv_none_ridus_display_donation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="عدد الاكياس المطلوبة : " />
+
+        <TextView
+            android:id="@+id/display_donation_tv_hospital"
+
+            style="@style/tv_none_ridus_display_donation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="المستشفي : " />
+
+        <TextView
+            android:id="@+id/display_donation_tv_address"
+            style="@style/tv_none_ridus_display_donation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="العنوان : " />
+
+        <TextView
+            android:id="@+id/display_donation_tv_phone"
+
+            style="@style/tv_none_ridus_display_donation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="رقم الجوال : " />
+
+        <TextView
+            android:id="@+id/display_donation_tv_notes"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_15sdp"
+            android:text="@string/slider_text"
+            android:textStyle="bold" />
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/display_donation_mv"
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            />
+        <Button
+            android:id="@+id/display_donation_btn_call"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btn_main_color"
+            android:text="اتصال"
+            android:textColor="@color/whiteColor"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+</LinearLayout>

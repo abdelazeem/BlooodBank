@@ -4,15 +4,20 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 
 import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,8 +27,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.bumptech.glide.Glide;
+import com.semicode.blooodbank.R;
 import com.semicode.blooodbank.data.model.DateTxt;
 
 import java.text.DecimalFormat;
@@ -33,9 +38,9 @@ import java.util.Locale;
 public class HelperMethod {
     private static ProgressDialog checkDialog;
     public static AlertDialog alertDialog;
-
+    static ConnectivityManager cm;
     public static void makeTextToast(Context context ,String text){
-        Toast.makeText(context,text,Toast.LENGTH_SHORT).show();
+        Toast.makeText(context,text,Toast.LENGTH_LONG).show();
 
     }
 
@@ -123,7 +128,38 @@ public class HelperMethod {
         }
     }
 
+    public static void showDialog(Activity activity, String msg){
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.custom_diloge_box);
 
+        TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
+        text.setText(msg);
+
+        Button dialogButton = (Button) dialog.findViewById(R.id.btn_dialog);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+
+            }
+        });
+
+        dialog.show();
+
+    }
+    static public boolean isConnected(Context context) {
+        try {
+            cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        } catch (NullPointerException e) {
+
+        }
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+        return isConnected;
+    }
 
 //    public static void customToast(Activity activity, String ToastTitle, boolean failed) {
 //

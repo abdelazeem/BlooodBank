@@ -19,6 +19,14 @@
     <string name="sign_up_et_phone">رقم الهاتف</string>
     <string name="sign_up_et_password">كلمة المرور</string>
     <string name="sign_up_et_title">انشاء حساب جديد</string>
+    """"""
+    <string name="choose_blood_type">فصيلة الدم </string>
+    <string name="choose_govrenment">اختر المحافظة</string>
+    <string name="choose_city">اختر المدينة</string>
+    <string name="GPSAlertDialogTitle">"locatin "</string>
+    <string name="GPSAlertDialogMessage">location</string>
+    <string name="action_settings">location</string>
+    <string name="cancel">cancel</string>
 
 
 </resources>

@@ -41,10 +41,11 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/background_et_white_dard</item>
+        <item name="android:background">@drawable/background_et_gray</item>
         <item name="android:layout_marginBottom">@dimen/_8sdp</item>
         <item name="android:textColorHint">#92161D</item>
-
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:gravity">start</item>
         <item name="android:drawablePadding">@dimen/_10sdp</item>
 
     </style>
@@ -57,6 +58,7 @@
         <item name="android:background">@color/main_color</item>
         <item name="android:gravity">center_horizontal|bottom</item>
         <item name="android:paddingBottom">@dimen/_9sdp</item>
+        <item name="android:paddingEnd">@dimen/_9sdp</item>
         <item name="android:textColor">@color/whiteColor</item>
         <item name="android:textSize">@dimen/_15ssp</item>
         <item name="android:textStyle">bold</item>
@@ -77,6 +79,26 @@
         <item name="android:paddingStart">@dimen/_10sdp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="tv_none_ridus_display_donation">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_50sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="tv_none_ridus_item_donation">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_50sdp</item>
+        <item name="android:drawablePadding">@dimen/_10sdp</item>
+        <item name="android:paddingStart">@dimen/_10sdp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
         <item name="android:textColor">@color/main_color</item>
     </style>
 

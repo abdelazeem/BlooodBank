@@ -28,7 +28,7 @@ public class ForgetPasswordFragment extends BaseFragment {
 
     @BindView(R.id.forget_pass_fragment_btn_send)
     Button forgetPassFragmentBtnSend;
-    ApiService apiService;
+
     @BindView(R.id.forget_pass_fragment_et_email)
     EditText forgetPassFragmentEtEmail;
     String phone;
@@ -40,7 +40,6 @@ public class ForgetPasswordFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_auth_forget_password, container, false);
         ButterKnife.bind(this, view);
-        apiService = getClient().create(ApiService.class);
 
         return view;
     }
@@ -59,7 +58,7 @@ public class ForgetPasswordFragment extends BaseFragment {
         if (phone.isEmpty()){
             HelperMethod.makeTextToast(getActivity()," enter emil or phone");
         }else {
-            apiService.resetPassword(phone).enqueue(new Callback<RestPassword>() {
+            getClient().resetPassword(phone).enqueue(new Callback<RestPassword>() {
                 @Override
                 public void onResponse(Call<RestPassword> call, Response<RestPassword> response) {
                    int x = response.body().getRestPasswordData().getPinCodeForTest();

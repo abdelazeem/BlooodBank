@@ -1,5 +1,5 @@
 
-package com.semicode.blooodbank.data.model;
+package com.semicode.blooodbank.data.model.generalRespoe;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

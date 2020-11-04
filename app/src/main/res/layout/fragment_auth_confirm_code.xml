@@ -50,7 +50,7 @@
             android:textColor="@color/main_color"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/background_btn_login"
+            android:background="@drawable/background_btn_gray"
             />
 
     </LinearLayout>

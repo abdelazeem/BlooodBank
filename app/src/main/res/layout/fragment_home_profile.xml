@@ -16,7 +16,7 @@
         android:id="@+id/container_profile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/profile_fragment_btn_sign_up"
+        android:layout_above="@+id/profile_fragment_btn_edit"
         android:layout_below="@id/profile_title"
         android:layout_marginHorizontal="@dimen/_20sdp"
         android:orientation="vertical"
@@ -165,7 +165,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/profile_fragment_btn_sign_up"
+        android:id="@+id/profile_fragment_btn_edit"
 
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_22sdp"
@@ -173,7 +173,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:background="@drawable/background_btn_edit_profilr"
+        android:background="@drawable/background_btn_main_color"
         android:text="تعديل"
         android:textColor="@color/whiteColor"
         android:textStyle="bold" />

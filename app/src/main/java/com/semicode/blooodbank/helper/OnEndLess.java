@@ -37,8 +37,7 @@ public abstract class OnEndLess extends RecyclerView.OnScrollListener {
             }
         }
 
-        if (!loading && (totalItemCount - visibleItemCount)
-                <= (firstVisibleItem + visibleThreshold)) {
+        if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
             // End has been reached
 
 

@@ -1,6 +1,7 @@
 package com.semicode.blooodbank.view.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 
 import com.semicode.blooodbank.R;
@@ -16,6 +17,7 @@ public class AuthCycleActivity extends BaseActivity {
 //        HelperMethod.changeLang(getBaseContext(), "ar");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth_cycle);
+
 
         LoginFragment loginFragment = new LoginFragment();
         HelperMethod.replaceFragment(getSupportFragmentManager(), R.id.auth_cycle_frame, loginFragment);

@@ -71,6 +71,7 @@
                 android:layout_alignStart="@+id/sign_up_fragment_im_blood_type"
 
 
+
                 />
 
 
@@ -174,7 +175,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/background_btn_login"
+        android:background="@drawable/background_btn_gray"
         android:text="تسجل"
         android:textColor="@color/main_color"
         android:textStyle="bold" />

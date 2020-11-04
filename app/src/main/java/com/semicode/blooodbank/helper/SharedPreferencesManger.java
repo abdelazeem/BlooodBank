@@ -8,7 +8,12 @@ import com.google.gson.Gson;
 public class SharedPreferencesManger {
 
     public static SharedPreferences sharedPreferences = null;
-
+//    public static String API_TOKEN;
+    public final static String USER = "user"
+            , PASSWORD = "password"
+            , SPLASH = "splash"
+            , APITOKEN = "apiToken"
+    ;
 
     public static void setSharedPreferences(Activity activity) {
         if (sharedPreferences == null) {
@@ -53,7 +58,7 @@ public class SharedPreferencesManger {
     public static String LoadData(Activity activity, String data_Key) {
         setSharedPreferences(activity);
 
-        return sharedPreferences.getString(data_Key, null);
+        return sharedPreferences.getString(data_Key, "");
     }
 
     public static boolean LoadBoolean(Activity activity, String data_Key) {

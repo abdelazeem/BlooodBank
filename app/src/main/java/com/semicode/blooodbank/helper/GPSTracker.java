@@ -224,37 +224,37 @@ public class GPSTracker extends Activity implements LocationListener {
     /**
      * Function to show settings alert dialog
      */
-//    public void showSettingsAlert() {
-//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
-//
-//        //Setting Dialog Title
-//        alertDialog.setTitle(R.string.GPSAlertDialogTitle);
-//
-//        //Setting Dialog Message
-//        alertDialog.setMessage(R.string.GPSAlertDialogMessage);
-//
-//
-//        //On Pressing Setting button
-//        alertDialog.setPositiveButton(R.string.action_settings, new DialogInterface.OnClickListener() {
-//
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-//                mContext.startActivity(intent);
-//            }
-//        });
-//
-//        //On pressing cancel button
-//        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-//
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        alertDialog.show();
-//    }
+    public void showSettingsAlert() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+
+        //Setting Dialog Title
+        alertDialog.setTitle(R.string.GPSAlertDialogTitle);
+
+        //Setting Dialog Message
+        alertDialog.setMessage(R.string.GPSAlertDialogMessage);
+
+
+        //On Pressing Setting button
+        alertDialog.setPositiveButton(R.string.action_settings, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                mContext.startActivity(intent);
+            }
+        });
+
+        //On pressing cancel button
+        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+    }
 
     /**
      * Get list of address by latitude and longitude

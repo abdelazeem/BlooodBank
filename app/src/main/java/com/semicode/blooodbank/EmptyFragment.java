@@ -15,24 +15,20 @@ public class EmptyFragment extends BaseFragment {
 
 
 
-    public EmptyFragment() {
-        // Required empty public constructor
-    }
 
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        initFragment();
         View view =inflater.inflate(R.layout.fragment_splash, container, false);
         ButterKnife.bind(this, view);
         return view ;
+    }
+
+    @Override
+    public void onBack() {
+        super.onBack();
     }
 }

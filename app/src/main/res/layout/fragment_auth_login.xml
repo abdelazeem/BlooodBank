@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0592161D">
+    android:background="#08E61521">
 
     <ImageView
         android:id="@+id/login_fragment_im_logo"
@@ -27,25 +27,25 @@
         <EditText
             android:id="@+id/login_fragment_et_email"
             style="@style/edit_text_style"
+            android:gravity="start"
             android:hint="الجوال"
             android:inputType="textWebEmailAddress"
-            android:gravity="start"
-            android:paddingStart="@dimen/_20sdp"
             android:paddingVertical="@dimen/_5sdp"
+            android:paddingStart="@dimen/_20sdp"
             android:textDirection="rtl"
 
             />
 
         <EditText
-            android:textDirection="rtl"
             android:id="@+id/login_fragment_et_password"
             style="@style/edit_text_style"
-            android:hint="كلمه المرور"
-            android:layoutDirection="rtl"
             android:gravity="end"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingVertical="@dimen/_5sdp"
+            android:hint="كلمه المرور"
             android:inputType="textPassword"
+            android:layoutDirection="rtl"
+            android:paddingVertical="@dimen/_5sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:textDirection="rtl"
 
             />
 
@@ -53,18 +53,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <CheckBox
-                android:id="@+id/login_fragment_chb_remember"
-
+            <TextView
+                android:id="@+id/login_fragment_text_remember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:checked="true"
-                android:layoutDirection="ltr"
                 android:text="تذكرني"
                 android:textColor="@color/whiteColor"
                 android:textStyle="bold"
+
+                />
+
+            <CheckBox
+                android:id="@+id/login_fragment_chb_remember"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_toEndOf="@id/login_fragment_text_remember"
+                android:layout_centerVertical="true"
+                android:button="@drawable/remember_checkbox"
+                android:background="@drawable/background_circle_white"
+                android:checked="true"
+                android:layoutDirection="ltr"
+                android:padding="@dimen/_2sdp"
+                android:layout_margin="@dimen/_5sdp"
 
                 />
 
@@ -86,7 +98,7 @@
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/background_btn_login"
+            android:background="@drawable/background_btn_gray"
             android:text="دخول"
             android:textColor="@color/main_color"
             android:textStyle="bold" />

@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.semicode.blooodbank.R;
-import com.semicode.blooodbank.data.model.GeneralResponseData;
+import com.semicode.blooodbank.data.model.generalRespoe.GeneralResponseData;
 
 
 import java.util.ArrayList;
@@ -24,13 +24,14 @@ public class MySpinnerAdapter extends BaseAdapter {
     public MySpinnerAdapter(Context applicationContext) {
         this.context = applicationContext;
         this.generalResponseDataList = generalResponseDataList;
+
         inflter = (LayoutInflater.from(applicationContext));
-    }
+     }
 
     public void setData(List<GeneralResponseData> generalResponseDataList, String hint) {
-        this.generalResponseDataList = generalResponseDataList;
-        this.generalResponseDataList.add(new GeneralResponseData(generalResponseDataList.size(), hint));
 
+        generalResponseDataList.add(0,new GeneralResponseData(0, hint));
+        this.generalResponseDataList = generalResponseDataList;
     }
 
     @Override

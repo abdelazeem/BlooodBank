@@ -35,7 +35,7 @@ public class ConfirmCodeFragment extends BaseFragment {
     EditText confirmPasswordFragmentEtConfirmPass;
     @BindView(R.id.confirm_password_fragment_btn_change_pass)
     Button confirmPasswordFragmentBtnChangePass;
-   ApiService apiService ;
+
    String phoneNumber ,code ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,8 +44,7 @@ public class ConfirmCodeFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_auth_confirm_code, container, false);
         ButterKnife.bind(this, view);
-        apiService =getClient().create(ApiService.class);
-        phoneNumber =getArguments().getString("phone number");
+         phoneNumber =getArguments().getString("phone number");
         code =getArguments().getString("code number");
         confirmPasswordFragmentEtCode.setText(phoneNumber);
         confirmPasswordFragmentEtNewPass.setText(code);
@@ -61,7 +60,7 @@ public class ConfirmCodeFragment extends BaseFragment {
 
     @OnClick(R.id.confirm_password_fragment_btn_change_pass)
     public void onViewClicked() {
-        apiService.changePassword(confirmPasswordFragmentEtNewPass.getText().toString(),
+        getClient().changePassword(confirmPasswordFragmentEtNewPass.getText().toString(),
                 confirmPasswordFragmentEtConfirmPass.getText().toString(),Integer.parseInt(confirmPasswordFragmentEtCode.getText().toString()),phoneNumber).enqueue(new Callback<RestPassword>() {
             @Override
             public void onResponse(Call<RestPassword> call, Response<RestPassword> response) {

@@ -1,9 +1,13 @@
 package com.semicode.blooodbank.adapter;
 
 
+import android.app.Activity;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.semicode.blooodbank.helper.HelperMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +19,7 @@ public class ViewPagerWithFragmentAdapter extends FragmentPagerAdapter {
     private List<String> fragmentsTitle = new ArrayList<>();
 
     public ViewPagerWithFragmentAdapter(FragmentManager fragmentManager) {
-        super(fragmentManager,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT );
+        super(fragmentManager );
         fragments = new ArrayList<>();
         fragmentsTitle = new ArrayList<>();
 
@@ -23,6 +27,7 @@ public class ViewPagerWithFragmentAdapter extends FragmentPagerAdapter {
     }
 
     public void addPager(Fragment fragments, String fragmentTitle) {
+
         this.fragments.add(fragments);
         this.fragmentsTitle.add(fragmentTitle);
     }

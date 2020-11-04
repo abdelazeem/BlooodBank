@@ -6,4 +6,7 @@
     <color name="main_color">#92161D</color>
     <color name="grayColor">#D1D0D0</color>
     <color name="whiteColor">#fff</color>
+    <color name="orangeColor">#FD6231</color>
+    <color name="transperent">#00F44336</color>
+    <color name="main_color_transpernt">#8192161D</color>
 </resources>

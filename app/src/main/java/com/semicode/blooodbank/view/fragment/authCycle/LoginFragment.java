@@ -11,10 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.semicode.blooodbank.R;
-import com.semicode.blooodbank.data.api.ApiService;
 
 import com.semicode.blooodbank.data.model.profile.Profile;
 import com.semicode.blooodbank.helper.HelperMethod;
+import com.semicode.blooodbank.helper.SharedPreferencesManger;
 import com.semicode.blooodbank.view.activity.HomeCycleActivity;
 import com.semicode.blooodbank.view.fragment.splashCycle.BaseFragment;
 
@@ -26,6 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.semicode.blooodbank.data.api.ApiClient.getClient;
+import static com.semicode.blooodbank.helper.HelperMethod.isConnected;
 
 
 public class LoginFragment extends BaseFragment {
@@ -43,7 +44,9 @@ public class LoginFragment extends BaseFragment {
     Button loginFragmentBtnSignIn;
     @BindView(R.id.login_fragment_btn_sign_up)
     Button loginFragmentBtnSignUp;
-    ApiService apiService;
+
+
+    String user, password;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,49 +55,59 @@ public class LoginFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_auth_login, container, false);
         ButterKnife.bind(this, view);
-//        Intent intent = new Intent(getActivity() ,HomeCycleActivity.class);
-//        startActivity(intent);
-        apiService = getClient().create(ApiService.class);
 
-
+        loginFragmentEtEmail.setText(SharedPreferencesManger.LoadData(getActivity(), "user"));
+        loginFragmentEtPassword.setText(SharedPreferencesManger.LoadData(getActivity(), "password"));
         return view;
     }
 
     @OnClick({R.id.login_fragment_chb_remember, R.id.login_fragment_tv_forget_pass, R.id.login_fragment_btn_sign_in, R.id.login_fragment_btn_sign_up})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.login_fragment_chb_remember:
-                break;
+
             case R.id.login_fragment_tv_forget_pass:
-                ForgetPasswordFragment forgetPasswordFragment = new ForgetPasswordFragment();
-                HelperMethod.replaceFragment(getActivity().getSupportFragmentManager(), R.id.auth_cycle_frame, forgetPasswordFragment);
+                HelperMethod.replaceFragment(getActivity().getSupportFragmentManager(), R.id.auth_cycle_frame, new ForgetPasswordFragment());
                 break;
             case R.id.login_fragment_btn_sign_in:
-                HelperMethod.showProgressDialog(getActivity(), "login");
+                if (isConnected(getActivity())) {
 
-                String user = loginFragmentEtEmail.getText().toString();
-                String password = loginFragmentEtPassword.getText().toString();
+                    HelperMethod.showProgressDialog(getActivity(), "login");
 
-                apiService.logIn(user, password).enqueue(new Callback<Profile>() {
-                    @Override
-                    public void onResponse(Call<Profile> call, Response<Profile> response) {
-                        if (response.body().getStatus() == 1) {
-                            HelperMethod.makeTextToast(getActivity(), "login done .......");
+                    user = loginFragmentEtEmail.getText().toString();
+                    password = loginFragmentEtPassword.getText().toString();
+
+                    getClient().logIn(user, password).enqueue(new Callback<Profile>() {
+                        @Override
+                        public void onResponse(Call<Profile> call, Response<Profile> response) {
+                            if (response.body().getStatus() == 1) {
+                                SharedPreferencesManger.SaveData(getActivity(), SharedPreferencesManger.APITOKEN, response.body().getData().getApiToken());
+//                            save data of user and password in sharedPreference
+                                if (loginFragmentChbRemember.isChecked()) {
+                                    SharedPreferencesManger.SaveData(getActivity(), SharedPreferencesManger.USER, user);
+                                    SharedPreferencesManger.SaveData(getActivity(), SharedPreferencesManger.PASSWORD, password);
+                                }
+
+
+//                      go to next activity ------home --------------
+                                Intent intent = new Intent(getActivity(), HomeCycleActivity.class);
+                                startActivity(intent);
+                            } else {
+                                HelperMethod.makeTextToast(getActivity(), "email or password is incorrect.......");
+                            }
                             HelperMethod.dismissProgressDialog();
-                        } else {
-                            HelperMethod.makeTextToast(getActivity(), "email or password is incorrect.......");
-                            HelperMethod.dismissProgressDialog();
+
                         }
 
-                    }
+                        @Override
+                        public void onFailure(Call<Profile> call, Throwable t) {
+                            HelperMethod.makeTextToast(getActivity(), "login not  done .......");
+                            HelperMethod.dismissProgressDialog();
+                        }
+                    });
+                } else {
+                    HelperMethod.makeTextToast(getActivity(), "check your internet connection ");
+                }
 
-                    @Override
-                    public void onFailure(Call<Profile> call, Throwable t) {
-                        HelperMethod.makeTextToast(getActivity(), "login not  done .......");
-                    }
-                });
-                Intent intent = new Intent(getActivity(), HomeCycleActivity.class);
-                startActivity(intent);
                 break;
             case R.id.login_fragment_btn_sign_up:
                 SignUpFragment signUpFragment = new SignUpFragment();

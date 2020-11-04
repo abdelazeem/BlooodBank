@@ -13,11 +13,13 @@ import android.widget.TextView;
 import com.semicode.blooodbank.R;
 import com.semicode.blooodbank.adapter.MySpinnerAdapter;
 import com.semicode.blooodbank.data.api.ApiService;
+import com.semicode.blooodbank.data.api.ApiService.*;
 import com.semicode.blooodbank.data.model.DateTxt;
-import com.semicode.blooodbank.data.model.GeneralResponse;
-import com.semicode.blooodbank.data.model.GeneralResponseData;
+import com.semicode.blooodbank.data.model.generalRespoe.GeneralResponse;
+import com.semicode.blooodbank.data.model.generalRespoe.GeneralResponseData;
 
 import com.semicode.blooodbank.data.model.profile.Profile;
+import com.semicode.blooodbank.helper.GeneralRequest;
 import com.semicode.blooodbank.helper.HelperMethod;
 import com.semicode.blooodbank.view.fragment.splashCycle.BaseFragment;
 
@@ -32,6 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.semicode.blooodbank.data.api.ApiClient.getClient;
+import static com.semicode.blooodbank.helper.GeneralRequest.getSpinnerData;
 
 
 public class SignUpFragment extends BaseFragment {
@@ -57,7 +60,6 @@ public class SignUpFragment extends BaseFragment {
 
     @BindView(R.id.sign_up_fragment_btn_sign_up)
     Button signUpFragmentBtnSignUp;
-    ApiService apiService;
     @BindView(R.id.sign_up_fragment_et_name)
     EditText signUpFragmentEtName;
     @BindView(R.id.sign_up_fragment_et_emil)
@@ -69,12 +71,10 @@ public class SignUpFragment extends BaseFragment {
     @BindView(R.id.sign_up_fragment_et_confirm_pass)
     EditText signUpFragmentEtConfirmPass;
     MySpinnerAdapter governmentAdapter, bloodTypeSpinnerAdapter, CitySpinnerAdapter;
-    int govermentIdSelected;
 
     public SignUpFragment() {
 
 
-        apiService = getClient().create(ApiService.class);
 
 
     }
@@ -90,19 +90,17 @@ public class SignUpFragment extends BaseFragment {
         governmentAdapter = new MySpinnerAdapter(getActivity());
         CitySpinnerAdapter = new MySpinnerAdapter(getActivity());
 
-        HelperMethod.showProgressDialog(getActivity(), "loading...");
-        getBloodTypeData(signUpFragmentSpBloodTypes,bloodTypeSpinnerAdapter);
-        getGovernmentData(signUpFragmentSpAddress,governmentAdapter);
-        HelperMethod.dismissProgressDialog();
-
 //
+        getSpinnerData(getActivity(),signUpFragmentSpBloodTypes,bloodTypeSpinnerAdapter,getString(R.string.choose_blood_type), getClient().getBloodType());
+        getSpinnerData(getActivity(),signUpFragmentSpAddress,governmentAdapter,getString(R.string.choose_govrenment), getClient().getGovernment());
+//
+
+
         signUpFragmentSpAddress.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                HelperMethod.showProgressDialog(getActivity(), "loading cities");
-                govermentIdSelected = adapterView.getSelectedItemPosition();
-                getCityData(signUpFragmentSpCity ,CitySpinnerAdapter ,govermentIdSelected);
 
+                getSpinnerData(getActivity(),signUpFragmentSpCity,CitySpinnerAdapter,getString(R.string.choose_city), getClient().getCities(governmentAdapter.selectedId));
 
             }
 
@@ -118,58 +116,10 @@ public class SignUpFragment extends BaseFragment {
         return view;
     }
 
-    void getCityData(Spinner spinner, MySpinnerAdapter spinnerAdapter ,int selectedGovernment) {
-        apiService.getCities(selectedGovernment).enqueue(new Callback<GeneralResponse>() {
-            @Override
-            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
 
 
-                spinnerAdapter.setData(response.body().getData(),"اختر المدينة");
-                spinner.setAdapter(spinnerAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<GeneralResponse> call, Throwable t) {
-
-                HelperMethod.makeTextToast(getActivity(), "can't load cities ");
-
-            }
-        });
-    }
-
-    void getBloodTypeData(Spinner spinner, MySpinnerAdapter spinnerAdapter) {
-        apiService.getBloodType().enqueue(new Callback<GeneralResponse>() {
-            @Override
-            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-
-                spinnerAdapter.setData(response.body().getData(), "فصيلة الدم");
-                spinner.setAdapter(spinnerAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<GeneralResponse> call, Throwable t) {
-
-            }
-        });
-    }
-
-    void getGovernmentData(Spinner spinner, MySpinnerAdapter spinnerAdapter) {
-        apiService.getGovernment().enqueue(new Callback<GeneralResponse>() {
-            @Override
-            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-
-                spinnerAdapter.setData(response.body().getData(), "اختر المحافظة");
-                spinner.setAdapter(spinnerAdapter);
 
 
-            }
-
-            @Override
-            public void onFailure(Call<GeneralResponse> call, Throwable t) {
-
-            }
-        });
-    }
 
 
     @Override
@@ -198,7 +148,7 @@ public class SignUpFragment extends BaseFragment {
     @OnClick(R.id.sign_up_fragment_btn_sign_up)
     public void onViewClicked() {
         HelperMethod.showProgressDialog(getActivity(), "Sign up...");
-        apiService.signUp(signUpFragmentEtName.getText() + "",
+        getClient().signUp(signUpFragmentEtName.getText() + "",
                 "" + signUpFragmentEtEmil.getText(),
                 "" + signUpFragmentEtBirthDate.getText(),
                 signUpFragmentSpCity.getSelectedItemPosition(),
